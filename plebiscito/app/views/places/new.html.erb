@@ -1,0 +1,20 @@
+<%= form_for :place, url: places_path do |f| %>
+  <p>
+    <%= f.label(:nombre) %><br>
+    <%= f.text_field :nombre %>
+  </p>
+ 
+  <p>
+    <%= f.label (:direccion) %><br>
+    <%= f.text_field :direccion %>
+  </p>
+  <p>
+    <%= f.label (:ciudad) %><br>
+    <%= f.text_field :ciudad %>
+  </p>
+  <p>
+    <%= f.submit 'Registrar Puesto' %>
+  </p>
+<% end %>
+
+<%= link_to 'Volver', places_path %>

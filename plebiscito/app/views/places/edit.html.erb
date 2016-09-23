@@ -1,0 +1,39 @@
+<h1>Modificar Puesto de Votación</h1>
+ 
+<%= form_for :place, url: place_path(@place), method: :patch do |f| %>
+ 
+  <% if @place.errors.any? %>
+    <div id="error_explanation">
+    <h2>
+        <%= pluralize(@place.errors.count, "error") %> han impedido que el artículo sea grabado:
+    </h2>
+      <ul>
+        <% @place.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </p>
+ 
+  <p>
+    <%= f.label :direccion %><br>
+    <%= f.text_field :direccion %>
+  </p>
+
+  <p>
+    <%= f.label :ciudad %><br>
+    <%= f.text_field :ciudad %>
+  </p>
+ 
+  <p>
+    <%= f.submit 'Registrar Puesto' %>
+  </p>
+ 
+<% end %>
+ 
+<%= link_to 'Volver', place_path %>

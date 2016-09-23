@@ -1,0 +1,15 @@
+<p>
+  <strong>Nombre:</strong>
+  <%= @place.nombre %>
+</p>
+ 
+<p>
+  <strong>Dirección:</strong>
+  <%= @place.direccion %>
+</p>
+<p>
+  <strong>Ubicación:</strong>
+  <%= @place.ciudad %>
+</p>
+<%= link_to 'Volver', places_path %>
+<%= link_to 'Editar', edit_place_path(@place) %>
