@@ -1,16 +1,36 @@
+ 
+
 <%= form_for :place, url: places_path do |f| %>
+
+  <% if @place.errors.any? %>
+    <div id="error_explanation">
+    <h2>
+        <%= pluralize(@place.errors.count, "error") %> han impedido que el puesto sea registrado:
+    </h2>
+      <ul>
+        <% @place.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <p>
-    <%= f.label(:nombre) %><br>
+    <%= f.label(:nombre,"Nombre del Puesto") %><br>
     <%= f.text_field :nombre %>
   </p>
  
   <p>
-    <%= f.label (:direccion) %><br>
+    <%= f.label(:direccion, :value => "Dirección") %><br>
     <%= f.text_field :direccion %>
   </p>
   <p>
-    <%= f.label (:ciudad) %><br>
+    <%= f.label(:ciudad,"Ciudad") %><br>
     <%= f.text_field :ciudad %>
+  </p>
+  <p>
+    <%= f.label(:departamento,"Departamento") %><br>
+    <%= f.text_field :departamento %>
   </p>
   <p>
     <%= f.submit 'Registrar Puesto' %>

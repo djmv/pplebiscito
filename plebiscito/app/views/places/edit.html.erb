@@ -5,7 +5,7 @@
   <% if @place.errors.any? %>
     <div id="error_explanation">
     <h2>
-        <%= pluralize(@place.errors.count, "error") %> han impedido que el artículo sea grabado:
+        <%= pluralize(@place.errors.count, "error") %> han impedido que el puesto sea registrado:
     </h2>
       <ul>
         <% @place.errors.full_messages.each do |msg| %>
@@ -28,6 +28,11 @@
   <p>
     <%= f.label :ciudad %><br>
     <%= f.text_field :ciudad %>
+  </p>
+
+  <p>
+    <%= f.label :departamento %><br>
+    <%= f.text_field :departamento %>
   </p>
  
   <p>

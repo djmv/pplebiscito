@@ -1,4 +1,6 @@
 class PlacesController < ApplicationController
+	http_basic_authenticate_with name: "1140887375", password: "1234",
+	 except: [:index, :show]
 	def index
 		@places = Place.all
 	end
@@ -42,7 +44,7 @@ class PlacesController < ApplicationController
 
 	private
 		def place_params
-			params.require(:place).permit(:nombre,:direccion,:ciudad)
+			params.require(:place).permit(:nombre,:direccion,:ciudad,:departamento)
 		
 		end
 end

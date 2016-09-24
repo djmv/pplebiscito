@@ -9,5 +9,4 @@ class SearchController < ApplicationController
   		format.js 
   	end
   end
-
 end

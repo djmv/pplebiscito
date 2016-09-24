@@ -8,8 +8,12 @@
   <%= @place.direccion %>
 </p>
 <p>
-  <strong>Ubicación:</strong>
+  <strong>Ciudad:</strong>
   <%= @place.ciudad %>
+</p>
+<p>
+  <strong>Departamento:</strong>
+  <%= @place.departamento %>
 </p>
 <%= link_to 'Volver', places_path %>
 <%= link_to 'Editar', edit_place_path(@place) %>

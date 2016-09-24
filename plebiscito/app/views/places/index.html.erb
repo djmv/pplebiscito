@@ -1,10 +1,12 @@
 <h1>Puestos de Votación Registrados</h1>
 <%= link_to 'Nuevo Puesto', new_place_path %>
+<%= link_to 'Buscar Puestos de Votación', '/main/index' %>
 <table>
   <tr>
     <th>Nombre</th>
     <th>Dirección</th>
     <th>Ciudad</th>
+    <th>Departamento</th>
     <th colspan="2"></th>
   </tr>
  
@@ -14,6 +16,7 @@
       <td><%= place.nombre %></td>
       <td><%= place.direccion %></td>
       <td><%= place.ciudad %></td>
+      <td><%= place.departamento %></td>
       <td><%= link_to 'Ver', place_path(place) %></td>
       <td><%= link_to 'Editar', edit_place_path(place) %></td>  
       <td><%= link_to 'Borrar', place_path(place), method: :delete, data: { confirm: '¿Estás seguro?' } %></td>   

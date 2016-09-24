@@ -4,7 +4,7 @@ class CreatePlaces < ActiveRecord::Migration
       t.string :nombre
       t.string :direccion
       t.string :ciudad
-
+      t.string :departamento
       t.timestamps null: false
     end
   end
