@@ -1,0 +1,23 @@
+<h1>Votantes<h1>
+
+<% @place.voters.each do |voter| %>
+	  <p>
+	    <strong>Votante:</strong>
+	    <%= voter.nombre %>
+	  </p>
+	 
+	  <p>
+	    <strong>Cedula:</strong>
+	    <%= voter.cedula %>
+	  </p>
+	  <p>
+	    <strong>Ciudad:</strong>
+	    <%= voter.ciudad %>
+	  </p>
+	  <p>
+	    <strong>Departamento:</strong>
+	    <%= voter.departamento %>
+	  </p>
+<% end %>
+<%= link_to 'Nuevo votante', new_place_voter_path(@place) %>
+<%= link_to 'Volver', place_path(@place[:id]) %>

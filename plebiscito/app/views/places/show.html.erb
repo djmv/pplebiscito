@@ -16,29 +16,8 @@
   <%= @place.departamento %>
 </p>
 
-<h2>Votantes</h2>
-<% @place.voters.each do |voter| %>
-	<% #if voter.havotado = true %>
-	  <p>
-	    <strong>Votante:</strong>
-	    <%= voter.nombre %>
-	  </p>
-	 
-	  <p>
-	    <strong>Cedula:</strong>
-	    <%= voter.cedula %>
-	  </p>
-	  <p>
-	    <strong>Ciudad:</strong>
-	    <%= voter.ciudad %>
-	  </p>
-	  <p>
-	    <strong>Departamento:</strong>
-	    <%= voter.departamento %>
-	  </p>
-	<% #end %>
-<% end %>
 
-<%= link_to 'Nuevo votante', new_place_voter_path(@place) %>
+
+<%= link_to 'Votantes', place_voters_path(@place) %>
 <%= link_to 'Volver', places_path %>
 <%= link_to 'Editar', edit_place_path(@place) %>
