@@ -1,0 +1,18 @@
+<h1>Registro de cedulas</h1>
+
+<h2>Agregar un votante:</h2>
+<p>Se registrará el votante en el puesto <%=@place.nombre%>, en <%=@place.ciudad%>,<%=@place.departamento%></p>
+<%= form_for([@place, @place.voters.build]) do |f| %>
+  <p>
+    <%= f.label(:nombre,"Nombre y Apellidos") %><br>
+    <%= f.text_field :nombre %>
+  </p>
+  <p>
+    <%= f.label(:cedula,"Cedula") %><br>
+    <%= f.text_field :cedula %>
+  </p>
+  <p>
+    <%= f.submit 'Registrar Votante'%>
+  </p>
+
+<% end %>

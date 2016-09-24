@@ -18,32 +18,27 @@
 
 <h2>Votantes</h2>
 <% @place.voters.each do |voter| %>
-  <p>
-    <strong>Votante:</strong>
-    <%= voter.nombre %>
-  </p>
- 
-  <p>
-    <strong>Cedula:</strong>
-    <%= voter.cedula %>
-  </p>
-  <div style="visibility: hidden"><%= voter.ciudad = @place.ciudad %></div>
-  <div style="visibility: hidden"><%= voter.departamento = @place.departamento %></div>
+	<% #if voter.havotado = true %>
+	  <p>
+	    <strong>Votante:</strong>
+	    <%= voter.nombre %>
+	  </p>
+	 
+	  <p>
+	    <strong>Cedula:</strong>
+	    <%= voter.cedula %>
+	  </p>
+	  <p>
+	    <strong>Ciudad:</strong>
+	    <%= voter.ciudad %>
+	  </p>
+	  <p>
+	    <strong>Departamento:</strong>
+	    <%= voter.departamento %>
+	  </p>
+	<% #end %>
 <% end %>
 
-<h2>Agregar un votante:</h2>
-<%= form_for([@place, @place.voters.build]) do |f| %>
-  <p>
-    <%= f.label :nombre %><br>
-    <%= f.text_field :nombre %>
-  </p>
-  <p>
-    <%= f.label :cedula %><br>
-    <%= f.text_area :cedula %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<%= link_to 'Nuevo votante', new_place_voter_path(@place) %>
 <%= link_to 'Volver', places_path %>
 <%= link_to 'Editar', edit_place_path(@place) %>
