@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160924032353) do
+ActiveRecord::Schema.define(version: 20160924175528) do
 
   create_table "places", force: :cascade do |t|
     t.string   "nombre"
@@ -41,5 +41,17 @@ ActiveRecord::Schema.define(version: 20160924032353) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "voters", force: :cascade do |t|
+    t.string   "cedula"
+    t.string   "nombre"
+    t.string   "ciudad"
+    t.string   "departamento"
+    t.integer  "place_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "voters", ["place_id"], name: "index_voters_on_place_id"
 
 end

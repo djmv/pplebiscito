@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   get "main/index"
 
   get "search/create"
-  resources :places 
+  resources :places do
+    resources :voters
+  end
   devise_for :users
   get 'principal/index'
   root "principal#index"
