@@ -8,7 +8,7 @@ class VotersController < ApplicationController
     	redirect_to place_voters_path(@place)
   	end
   	def index
-		@voters = Voter.all
+		@voter = Voter.new
 		@place = Place.find(params[:place_id])
 	end
 
