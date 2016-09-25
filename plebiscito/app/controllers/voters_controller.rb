@@ -4,6 +4,7 @@ class VotersController < ApplicationController
     	@voter = @place.voters.create(voter_params)
     	@voter.ciudad = @place.ciudad
   		@voter.departamento = @place.departamento
+  		@voter.havotado = "false"
     	redirect_to place_voters_path(@place)
   	end
   	def index

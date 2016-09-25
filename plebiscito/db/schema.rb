@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160924221353) do
+ActiveRecord::Schema.define(version: 20160925000315) do
 
   create_table "places", force: :cascade do |t|
     t.string   "nombre"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20160924221353) do
     t.integer  "place_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "havotado"
   end
 
   add_index "voters", ["place_id"], name: "index_voters_on_place_id"
