@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   get "main/index"
-
+  get "main/hola"
   get "search/create"
+  get "search/ocreate"
   resources :places do
     resources :voters
   end

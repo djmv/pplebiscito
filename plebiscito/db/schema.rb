@@ -17,9 +17,9 @@ ActiveRecord::Schema.define(version: 20160925000315) do
     t.string   "nombre"
     t.string   "direccion"
     t.string   "ciudad"
+    t.string   "departamento"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.string   "departamento"
   end
 
   create_table "users", force: :cascade do |t|

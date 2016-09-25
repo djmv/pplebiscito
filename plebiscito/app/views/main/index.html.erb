@@ -1,4 +1,3 @@
-
 <%= form_tag "/search/create", method: :get, remote:  true, id:"search-form" do %>
 	<%= text_field_tag :keyword, nil, placeholder: "Buscar puesto" %>
 	<%= content_tag :button, type: :submit do %>
