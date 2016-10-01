@@ -1,4 +1,10 @@
 <div>
-<strong><%= voter.nombre %></strong>
+<% if @i==1 %>
+	<strong><%= voter.nombre %></strong>
+	<%= voter.place_id%>
 	<td><%= link_to 'Ver sitio de votación', place_path(voter.place_id) %></td>
+<% else%>
+	<strong><%= voter.nombre %></strong>
+	<td><%= link_to 'Votar', main_folleto_path%></td>
+<% end %>
 </div>

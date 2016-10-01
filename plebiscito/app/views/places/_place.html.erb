@@ -3,5 +3,7 @@
 	<%= place.direccion %>
 	<%= place.ciudad %>
 	-
-	<%= link_to "ver", place , style:"color:blue;text-decoration:underline;" %>
+	<%= link_to "Ver", place , style:"color:blue;text-decoration:underline;" %>
+
+	<%= link_to "Asociar", "/main/votar", data: { confirm: '¿Estás seguro?' }, style:"color:blue;text-decoration:underline;" %>
 </div>

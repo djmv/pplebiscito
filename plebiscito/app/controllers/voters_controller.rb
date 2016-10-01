@@ -6,8 +6,8 @@ class VotersController < ApplicationController
   		@voter.departamento = @place.departamento
   		@voter.havotado = "false"
     	redirect_to place_voters_path(@place)
-  	end
-  	def index
+  end
+  def index
 		@voter = Voter.new
 		@place = Place.find(params[:place_id])
 	end

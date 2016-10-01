@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 20160925000315) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "havotado"
+    t.integer  "votosi",       default: 0
+    t.integer  "votono",       default: 0
   end
 
   add_index "voters", ["place_id"], name: "index_voters_on_place_id"

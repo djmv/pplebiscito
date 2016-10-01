@@ -5,5 +5,4 @@ class MainController < ApplicationController
   def hola
   	@saludo = "hola world"
   end
-  
 end

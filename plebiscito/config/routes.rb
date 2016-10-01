@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
+  get 'votes/index'
+
+  get 'votes/search'
+
   get "main/index"
   get "main/hola"
+  get "main/votar"
+  get "main/folleto"
   get "search/create"
   get "search/ocreate"
+  get "search/ucreate"
   resources :places do
     resources :voters
   end

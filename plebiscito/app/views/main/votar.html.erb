@@ -1,0 +1,13 @@
+<h1>Aquí es donde van a votar</h1>
+
+<%= form_tag "/search/ucreate", method: :get, remote:  true, id:"search-form" do %>
+	<%= text_field_tag :keyword, nil, placeholder: "Buscar cedula" %>
+	<%= content_tag :button, type: :submit do %>
+	buscar
+	<%end%>
+<%end%>
+
+<div id="resultados1">
+	
+
+</div>
