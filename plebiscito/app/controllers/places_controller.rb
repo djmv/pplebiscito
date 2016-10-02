@@ -6,6 +6,7 @@ class PlacesController < ApplicationController
 	end
 
 	def show
+		@votante = "#{params[:votante]}"
 		@place = Place.find(params[:id])
 	end
 	

@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get "search/create"
   get "search/ocreate"
   get "search/ucreate"
+  get "search/votar"
+  get "statistic/salida"
   resources :places do
     resources :voters
   end

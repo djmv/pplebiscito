@@ -25,17 +25,27 @@ class SearchController < ApplicationController
       format.js 
     end
   end
+
+  def votar
+    $pid = "%#{params[:pid]}%"
+  end
+
   def ucreate
     palabra = "%#{params[:keyword]}%"
-
-    @voter = Voter.select("nombre").where("cedula LIKE ? AND place_id LIKE ?",palabra,1)
-    puts @voter
-    @i = 2
-
+    @voter = Voter.select("id,nombre,havotado").where("cedula LIKE ? AND place_id LIKE ?",palabra,$pid)
+    
+    if @voter.empty? 
+      @voter = Voter.select("place_id,nombre").where("cedula LIKE ?",palabra)
+      @i = 3
+    else
+      @i = 2
+    end
     respond_to do |format|
       format.html { redirect_to "/main/votar" }
       format.json {  render json: @voter}
       format.js 
     end
   end
+
+
 end

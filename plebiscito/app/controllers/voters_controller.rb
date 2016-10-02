@@ -7,6 +7,7 @@ class VotersController < ApplicationController
   		@voter.havotado = "false"
     	redirect_to place_voters_path(@place)
   end
+
   def index
 		@voter = Voter.new
 		@place = Place.find(params[:place_id])
@@ -15,8 +16,19 @@ class VotersController < ApplicationController
  	def new
  		@place = Place.find(params[:place_id])
  	end
+
+  def update
+    @voter = Voter.find(params[:id])
+      
+      if @voter.update(voter_params)
+        redirect_to @voter
+      else
+        render 'edit'
+      end 
+  end
+
   	private
     	def voter_params
-      		params.require(:voter).permit(:cedula, :nombre, :ciudad, :departamento, :havotado)
+      	params.require(:voter).permit(:cedula, :nombre, :ciudad, :departamento, :havotado)
     	end
 end

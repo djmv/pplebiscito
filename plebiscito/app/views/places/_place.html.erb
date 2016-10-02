@@ -5,5 +5,5 @@
 	-
 	<%= link_to "Ver", place , style:"color:blue;text-decoration:underline;" %>
 
-	<%= link_to "Asociar", "/main/votar", data: { confirm: '¿Estás seguro?' }, style:"color:blue;text-decoration:underline;" %>
+	<%= link_to "Asociar", search_votar_path(:action => "ucreate", :pid => place.id) , data: { confirm: '¿Estás seguro?' }, style:"color:blue;text-decoration:underline;" %>
 </div>

@@ -1,10 +1,18 @@
 <div>
 <% if @i==1 %>
 	<strong><%= voter.nombre %></strong>
-	<%= voter.place_id%>
-	<td><%= link_to 'Ver sitio de votación', place_path(voter.place_id) %></td>
-<% else%>
+	<td><%= link_to 'Ver sitio de votación', place_path(voter.place_id, :votante => 'si') %></td>
+<% elsif @i==2%>
 	<strong><%= voter.nombre %></strong>
-	<td><%= link_to 'Votar', main_folleto_path%></td>
+	<% if voter.havotado == 'no'%>
+		<td>El ciudadano ya votó</td>
+	<% else %>
+		<td><%= link_to 'Votar', main_folleto_path(:id => voter.id) %></td>
+	<% end %>
+<% else%>
+	<strong>El ciudadano </strong>
+	<strong><%= voter.nombre %></strong>
+	<strong> no se ecnuetra inscrito en este puesto de votación</strong>
+	<td><%= link_to 'Ver sitio de votación', place_path(voter.place_id, :votante => 'si') %></td>
 <% end %>
 </div>

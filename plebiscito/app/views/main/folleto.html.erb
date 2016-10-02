@@ -1,5 +1,4 @@
-<%= form_for :place, url: places_path do |f| %>
-	<h1>Cartilla de votación</h1>
-	<h2>¿Apoya usted el acuerdo final para la terminación del conflicto y la construcción de una paz estable y duradera?</h2>
-	<strong><h1><%= link_to 'SI', %></h1></strong> <strong><h1>NO</h1></strong>
-<% end %>
+<h1>Cartilla de votación</h1>
+<h2>¿Apoya usted el acuerdo final para la terminación del conflicto y la construcción de una paz estable y duradera?</h2>
+<strong><h1><%= link_to 'SI',statistic_salida_path(:voto1 => 1, :voto2 => 0), data: { confirm: "Su opción es: SI \n ¿Está seguro?" }%></h1></strong> 
+<strong><h1><%= link_to 'NO',statistic_salida_path(:voto1 => 0, :voto2 => 1), data: { confirm: "Su opción es: NO \n ¿Está seguro?" }%></h1></strong>
