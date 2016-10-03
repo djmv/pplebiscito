@@ -27,7 +27,7 @@ class SearchController < ApplicationController
   end
 
   def votar
-    $pid = "%#{params[:pid]}%"
+    $pid = "#{params[:pid]}"
   end
 
   def ucreate
