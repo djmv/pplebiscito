@@ -15,6 +15,7 @@ class SearchController < ApplicationController
     #@places = Place.where("nombre LIKE ? OR ciudad LIKE ?",palabra,palabra)
     #@v = Voter.select("id").where("cedula LIKE ?",palabra)
     @voter = Voter.select("place_id,nombre").where("cedula LIKE ?",palabra)
+    @i = 1
     #@places = Place.find(params[:place_id])
     #@place = Place.find(@v)
 
@@ -24,6 +25,28 @@ class SearchController < ApplicationController
       format.js 
     end
   end
+
+  def votar
+    $pid = "#{params[:pid]}"
+  end
+
+  def ucreate
+    palabra = "%#{params[:keyword]}%"
+    @voter = Voter.select("id,nombre,havotado").where("cedula LIKE ? AND place_id LIKE ?",palabra,$pid)
+    
+    if @voter.empty? 
+      @voter = Voter.select("place_id,nombre").where("cedula LIKE ?",palabra)
+      @i = 3
+    else
+      @i = 2
+    end
+    respond_to do |format|
+      format.html { redirect_to "/main/votar" }
+      format.json {  render json: @voter}
+      format.js 
+    end
+  end
+
   def vcreate
     palabra = "%#{params[:keyword]}%"
     @place = Place.find(params[:format])

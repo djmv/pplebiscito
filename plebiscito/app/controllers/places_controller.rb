@@ -1,11 +1,12 @@
 class PlacesController < ApplicationController
-	#http_basic_authenticate_with name: "1140887375", password: "1234",
-	# except: [:index, :show]
+	http_basic_authenticate_with name: "1140887375", password: "1234",
+	except: [:index, :show]
 	def index
 		@places = Place.all
 	end
 
 	def show
+		@votante = "#{params[:votante]}"
 		@place = Place.find(params[:id])
 	end
 	
