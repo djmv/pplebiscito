@@ -10,14 +10,6 @@
 	    <strong>Cedula: </strong>
 	    <%= voter.cedula %>
 	  </p>
-	  <p>
-	    <strong>Ciudad: </strong>
-	    <%= voter.ciudad %>
-	  </p>
-	  <p>
-	    <strong>Departamento: </strong>
-	    <%= voter.departamento %>
-	  </p>
 <% end %>
 <%= link_to 'Nuevo votante', new_place_voter_path(@place) %>
 <%= link_to 'Volver', place_path(@place[:id]) %>

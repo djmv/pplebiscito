@@ -25,6 +25,7 @@ class SearchController < ApplicationController
       format.js 
     end
   end
+<<<<<<< HEAD
 
   def votar
     $pid = "#{params[:pid]}"
@@ -48,4 +49,18 @@ class SearchController < ApplicationController
   end
 
 
+=======
+  def vcreate
+    palabra = "%#{params[:keyword]}%"
+    @place = Place.find(params[:format])
+    @pi=@place[:id].to_s
+    @voter = Voter.where("cedula = ? and place_id = "+@pi,palabra)
+
+    if Voter.exists?(["cedula = ? and place_id = "+@pi,palabra])
+      redirect_to place_voter_votar_url(@place,@voter)   
+    else
+      redirect_to place_voter_notfound_url(@place,:keyword)
+    end
+  end
+>>>>>>> refs/remotes/origin/master
 end

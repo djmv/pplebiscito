@@ -1,0 +1,23 @@
+<p>
+  <strong>Nombre:</strong>
+  <%= Place.find(params[:place_id]).nombre %>
+</p>
+ 
+<p>
+  <strong>Dirección:</strong>
+  <%= Place.find(params[:place_id]).direccion %>
+</p>
+<p>
+  <strong>Ciudad:</strong>
+  <%= Place.find(params[:place_id]).ciudad %>
+</p>
+<p>
+  <strong>Departamento:</strong>
+  <%= Place.find(params[:place_id]).departamento %>
+
+<%= form_tag search_vcreate_url(Place.find(params[:place_id])), method: :get do %>
+	<%= text_field_tag :keyword, nil, placeholder: "Digite cedula" %>
+	<%= content_tag :button, type: :submit do %>
+	Buscar
+	<%end%>
+<%end%>
