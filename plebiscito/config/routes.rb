@@ -9,14 +9,11 @@ Rails.application.routes.draw do
   get "main/folleto"
   get "search/create"
   get "search/ocreate"
-<<<<<<< HEAD
   get "search/ucreate"
   get "search/votar"
   get "statistic/salida"
-=======
   get "search/vcreate"
   patch "search/vcreate"
->>>>>>> refs/remotes/origin/master
   resources :places do
     resources :voters do
       get :votar
