@@ -11,15 +11,14 @@
 	  </li>
 	  <%else%>
 	  <li>
-	  	<%= link_to "Iniciar sesión", new_user_session_path %>
+	  	<%= link_to "Admin", new_user_session_path %>
 	  </li>
 	  <li>
-	  	<%= link_to "Crear Cuenta", new_user_registration_path %>
+	  	<%= link_to "Home", root_path %>
 	  </li>
   <%end%>
 </head>
 <body>
-
 	<p class="notice"><%= notice %></p>
 	<p class="alert"><%= alert %></p>
 <%= yield %>

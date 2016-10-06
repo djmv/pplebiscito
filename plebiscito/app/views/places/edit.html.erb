@@ -1,5 +1,5 @@
 <h1>Modificar Puesto de Votación</h1>
-<% if user_signed_in? && current_user.email == "dayanm@mentiras.com" %>
+<% if user_signed_in? && (current_user.email == "dayanm@uninorte.com" || current_user.email == "hector@uninorte.com" || current_user.email == "julian@uninorte.com" ) %>
     <%= form_for :place, url: place_path(@place), method: :patch do |f| %>
      
       <% if @place.errors.any? %>
@@ -40,7 +40,7 @@
       </p>
     <% end %>
   <%else%>
-    <h1>Ñaaa!!!</h1>
+    <h1>Acceso denegado</h1>
 <% end %>
  
 <%= link_to 'Volver', place_path %>

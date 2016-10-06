@@ -1,3 +1,4 @@
+<% if user_signed_in? && (current_user.email == "dayanm@uninorte.com" || current_user.email == "hector@uninorte.com" || current_user.email == "julian@uninorte.com" ) %>
  <%= form_for :place, url: places_path do |f| %>
 
   <% if @place.errors.any? %>
@@ -34,5 +35,5 @@
     <%= f.submit 'Registrar Puesto' %>
   </p>
 <% end %>
-
 <%= link_to 'Volver', places_path %>
+<%end%>

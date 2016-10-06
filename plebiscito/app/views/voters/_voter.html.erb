@@ -3,16 +3,20 @@
 	<strong><%= voter.nombre %></strong>
 	<td><%= link_to 'Ver sitio de votación', place_path(voter.place_id, :votante => 'si') %></td>
 <% elsif @i==2%>
-	<strong><%= voter.nombre %></strong>
-	<% if voter.havotado == 'si'%>
-		<td>El ciudadano ya votó</td>
-	<% else %>
-		<td><%= link_to 'Votar', main_folleto_path(:id => voter.id) %></td>
-	<% end %>
+	<% if user_signed_in? && (current_user.email == "dayanm@uninorte.com" || current_user.email == "hector@uninorte.com" || current_user.email == "julian@uninorte.com" ) %>
+		<strong><%= voter.nombre %></strong>
+		<% if voter.havotado == 'si'%>
+			<td>El ciudadano ya votó</td>
+		<% else %>
+			<td><%= link_to 'Votar', main_folleto_path(:id => voter.id) %></td>
+		<% end %>
+	<%end%>
 <% else%>
-	<strong>El ciudadano </strong>
-	<strong><%= voter.nombre %></strong>
-	<strong> no se encuentra inscrito en este puesto de votación</strong>
-	<td><%= link_to 'Ver sitio de votación', place_path(voter.place_id, :votante => 'si') %></td>
+	<% if user_signed_in? && (current_user.email == "dayanm@uninorte.com" || current_user.email == "hector@uninorte.com" || current_user.email == "julian@uninorte.com" ) %>
+		<strong>El ciudadano </strong>
+		<strong><%= voter.nombre %></strong>
+		<strong> no se encuentra inscrito en este puesto de votación</strong>
+		<td><%= link_to 'Ver sitio de votación', place_path(voter.place_id, :votante => 'si') %></td>
+	<%end%>
 <% end %>
 </div>

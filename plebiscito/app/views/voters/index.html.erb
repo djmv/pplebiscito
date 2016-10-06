@@ -1,3 +1,4 @@
+<% if user_signed_in? && (current_user.email == "dayanm@uninorte.com" || current_user.email == "hector@uninorte.com" || current_user.email == "julian@uninorte.com") %>
 <h1>Votantes<h1>
 
 <% @place.voters.each do |voter| %>
@@ -12,4 +13,5 @@
 	  </p>
 <% end %>
 <%= link_to 'Nuevo votante', new_place_voter_path(@place) %>
+<%end%>
 <%= link_to 'Volver', place_path(@place[:id]) %>

@@ -1,4 +1,5 @@
 <h1>Puestos de Votación Registrados</h1>
+<% if user_signed_in? && (current_user.email == "dayanm@uninorte.com" || current_user.email == "hector@uninorte.com" || current_user.email == "julian@uninorte.com" ) %>
 <%= link_to 'Nuevo Puesto', new_place_path %>
 <%= link_to 'Buscar Puestos de Votación', '/main/index' %>
 <table>
@@ -23,3 +24,26 @@
     </tr>
   <% end %>
 </table>
+<%else%>
+      <%= link_to 'Buscar Puestos de Votación', '/main/index' %>
+  <table>
+    <tr>
+      <th>Nombre</th>
+      <th>Dirección</th>
+      <th>Ciudad</th>
+      <th>Departamento</th>
+      <th colspan="2"></th>
+    </tr>
+   
+    <% @places.each do |place| %>
+
+      <tr>
+        <td><%= place.nombre %></td>
+        <td><%= place.direccion %></td>
+        <td><%= place.ciudad %></td>
+        <td><%= place.departamento %></td>
+        <td><%= link_to 'Ver', place_path(place) %></td>
+      </tr>
+    <%end%>
+        </table>
+<% end %>

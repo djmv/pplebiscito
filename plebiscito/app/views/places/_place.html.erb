@@ -4,6 +4,7 @@
 	<%= place.ciudad %>
 	-
 	<%= link_to "Ver", place , style:"color:blue;text-decoration:underline;" %>
-
+<% if user_signed_in? && (current_user.email == "dayanm@uninorte.com" || current_user.email == "hector@uninorte.com" || current_user.email == "julian@uninorte.com" ) %>
 	<%= link_to "Asociar", search_votar_path(:action => "ucreate", :pid => place.id) , data: { confirm: '¿Estás seguro?' }, style:"color:blue;text-decoration:underline;" %>
+<%end%>
 </div>

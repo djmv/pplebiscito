@@ -1,3 +1,4 @@
+<% if user_signed_in? && (current_user.email == "dayanm@uninorte.com" || current_user.email == "hector@uninorte.com" || current_user.email == "julian@uninorte.com" ) %>
 <h1>Registro de cedulas</h1>
 
 <h2>Agregar un votante:</h2>
@@ -16,3 +17,4 @@
   </p>
 
 <% end %>
+<%end%>
