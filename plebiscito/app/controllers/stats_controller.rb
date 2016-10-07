@@ -1,8 +1,11 @@
-class StatisticController < ApplicationController
+class StatsController < ApplicationController
 	def index
+		@stats = Stat.all
+		@places = Place.all
+	end
+	def show
 		
 	end
-
 	def salida
 		vote1 = "#{params[:voto1]}"
 		vote2 = "#{params[:voto2]}"

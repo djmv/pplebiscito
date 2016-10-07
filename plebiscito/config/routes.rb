@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   get "search/votar"
   get "statistic/salida"
   get "search/vcreate"
-  patch "search/vcreate"
+  get "search/getvotes"
+  get "stats/salida"
+  
   resources :places do
     resources :voters do
       get :votar
@@ -20,7 +22,7 @@ Rails.application.routes.draw do
     end
     get :asociado
   end
-
+  resources :stats
   devise_for :users
   get 'principal/index'
   root "principal#index"

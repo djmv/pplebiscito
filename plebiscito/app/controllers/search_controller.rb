@@ -46,17 +46,26 @@ class SearchController < ApplicationController
       format.js 
     end
   end
-
-  def vcreate
-    palabra = "%#{params[:keyword]}%"
-    @place = Place.find(params[:format])
-    @pi=@place[:id].to_s
-    @voter = Voter.where("cedula = ? and place_id = "+@pi,palabra)
-
-    if Voter.exists?(["cedula = ? and place_id = "+@pi,palabra])
-      redirect_to place_voter_votar_url(@place,@voter)   
-    else
-      redirect_to place_voter_notfound_url(@place,:keyword)
+  
+  def getvotes
+    palabra = "#{params[:option]}"
+    @idm = Place.select("id").where("nombre = ?",palabra)
+    @idm = @idm.to_a
+    puts @idm
+    @stats = Stat.where("idmesa = ?",@idm)
+    @yesm = 0
+    @nom = 0
+    @stats.each do |stat|
+      @yesm = @yesm + stat.vote_yes
+      @nom = @nom + stat.vote_no
     end
+    @numvotes = [@yesm,@nom]
+    #puts @numvotes
+
+      respond_to do |format|
+          format.html { redirect_to "/stats/index" }
+          format.json { render json: @numvotes}
+          format.js 
+      end
   end
 end
