@@ -6,8 +6,20 @@
 	<% @yes = @yes + stat.vote_yes %>
 	<% @no = @no + stat.vote_no %>
 <% end %>
-<h4><strong>Votos por el sí: </strong><%= 100*@yes/(@yes+@no) %>%</h4>
-<h4><strong>Votos por el no: </strong><%= 100*@no/(@yes+@no) %>%</h4>
+<h4><strong>Votos por el sí: </strong>
+<% if @yes == 0 and @no == 0 %>
+<%= 0 %>
+<% else %>
+<%= 100*@yes/(@yes+@no) %>
+<% end %>
+%</h4>
+<h4><strong>Votos por el no: </strong>
+<% if @yes == 0 and @no == 0 %>
+<%= 0 %>
+<% else %>
+<%= 100*@no/(@yes+@no) %>
+<% end %>
+%</h4>
 <!-- Esto es para obtener las ids de las mesas en las que se ha votado en @idm-->
 <% @idm = Array.new %>
 <% @idm[0] = 0 %> 
@@ -25,7 +37,7 @@
     <% end %> 
 <% end %>
 <%@idm = @idm[1..@idm.length]%>
-<p>Seleccione el puesto de votacion del que desea ver estadisticas</p>
+<p>Seleccione el puesto de votación del que desea ver estadisticas </p>
 <%= form_tag "/search/getvotes", method: :get, remote:  true, id:"select-form" do %>
 	<%= select_tag :option, options_for_select(@places.collect{ |u| [u.nombre]}), :selected => :option %>
 	<%= content_tag :button, type: :submit do %>
